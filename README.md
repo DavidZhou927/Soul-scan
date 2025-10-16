@@ -1,6 +1,6 @@
-# AI Fortune (fortune generator based on birth date)
+# Soul scan (fortune generator based on birth date)
 
-This is a small interactive Python program. Enter a birth date (for example `1990-01-01`) and the program will deterministically produce a short "fortune" based on that date, including a category (Great/Moderate/Misfortune), a short verse, advice, lucky numbers, a lucky color and direction.
+Let’s be real — stress is piling up more and more these days, so it’s no wonder lots of us turn to fun little things like fortune-telling, tarot cards, or divination to grab a quick dose of comfort. Here’s a tiny, playful interactive Python program that fits right in: just punch in your birth date (for example `1990-01-01`), and it’ll spit out a silly little "fortune" — totally based on that date, no guesswork! You’ll get a category (Great/Moderate/Misfortune), a short cutesy verse, some casual advice, lucky numbers, a lucky color, and even a lucky direction.
 
 Features
 - Pure Python (does not rely on external networks or web scraping)
