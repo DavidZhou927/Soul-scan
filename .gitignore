@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# virtual env
+.venv/
+venv/
+ENV/
+env/
+
+# editor
+.vscode/
+.idea/
+.DS_Store
+
+# OS
+Thumbs.db
+
+# Flask instance folder
+instance/
+
+# HTML export files
+src/fortune_*.html
