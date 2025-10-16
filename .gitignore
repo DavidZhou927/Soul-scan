@@ -24,3 +24,4 @@ instance/
 
 # HTML export files
 src/fortune_*.html
+server.log
