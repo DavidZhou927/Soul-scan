@@ -37,6 +37,62 @@ CLI and GUI
 - CLI one-off: `python3 src/main.py --date 1990-01-01 --html --theme china`
 - Simple GUI: `python3 src/main.py --gui`
 
+Web UI / HTML export (detailed)
+
+If you prefer to use a browser interface or want a ready-made HTML export, follow these steps.
+
+1) Start the Flask web app (foreground):
+
+```bash
+python3 src/app.py
+```
+
+Then open the interface in your browser at:
+
+  http://127.0.0.1:5000
+
+2) Start the Flask app in background (keeps terminal free):
+
+```bash
+nohup python3 src/app.py > server.log 2>&1 &
+# then optionally: tail -f server.log
+```
+
+3) API: request a fortune as JSON (example with curl):
+
+```bash
+curl -s -X POST -H "Content-Type: application/json" \
+  -d '{"date":"1990-01-01"}' \
+  http://127.0.0.1:5000/api/fortune | jq
+```
+
+4) Export a styled HTML page (browser or curl):
+
+- Browser: use the web UI and click the export button. The UI will open an export page showing the styled HTML.
+- Direct curl (example saves HTML to a file):
+
+```bash
+curl -s "http://127.0.0.1:5000/export?date=1990-01-01&theme=china" -o fortune_1990-01-01.html
+open fortune_1990-01-01.html
+```
+
+Parameters for `/export` (query string):
+- `date` — required, format YYYY-MM-DD
+- `theme` — optional, e.g. `china` or `minimal`
+
+5) Alternative: generate HTML from the CLI without starting the web server:
+
+```bash
+python3 src/main.py --date 1990-01-01 --html --theme china
+# output file will be created in the project root (e.g. src/fortune_1990-01-01_<timestamp>.html)
+```
+
+Notes and troubleshooting
+
+- If port 5000 is already in use, change the port in `src/app.py` or stop the process using that port.
+- On macOS, use `open <file>` to open a generated HTML from the command line.
+- If the web page doesn't render styles or the download button, ensure you have an internet connection for the small client-side CDN used by the export (html2canvas). The core API and CLI do not require external networks.
+
 Verify determinism
 
 Run the same command twice with the same date. The output should be identical (same title, verse, lucky numbers, seed).
