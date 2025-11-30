@@ -109,8 +109,3 @@ Files of interest
 License
 
 See `LICENSE` for project licensing (MIT by default).
-
-Contact
-
-If you want the README adapted to a more academic tone for your instructor, I can prepare a one-page summary suitable for submission.
-
